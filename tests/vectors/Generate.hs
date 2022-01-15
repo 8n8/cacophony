@@ -155,7 +155,6 @@ allHandshakes = do
 
   hash    <- [ WrapHashType BLAKE2b
              , WrapHashType BLAKE2s
-             , WrapHashType SHA256
              , WrapHashType SHA512
              ]
 

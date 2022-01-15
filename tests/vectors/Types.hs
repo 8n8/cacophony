@@ -17,7 +17,6 @@ import Crypto.Noise.Cipher.AESGCM
 import Crypto.Noise.DH.Curve25519
 import Crypto.Noise.DH.Curve448
 import Crypto.Noise.HandshakePatterns
-import Crypto.Noise.Hash.SHA256
 import Crypto.Noise.Hash.SHA512
 import Crypto.Noise.Hash.BLAKE2s
 import Crypto.Noise.Hash.BLAKE2b
@@ -108,7 +107,6 @@ data SomeDHType where
 data HashType :: * -> * where
   BLAKE2b :: HashType BLAKE2b
   BLAKE2s :: HashType BLAKE2s
-  SHA256  :: HashType SHA256
   SHA512  :: HashType SHA512
 
 data SomeHashType where
@@ -193,7 +191,6 @@ hashMap :: [(ByteString, SomeHashType)]
 hashMap =
   [ ("BLAKE2b", WrapHashType BLAKE2b)
   , ("BLAKE2s", WrapHashType BLAKE2s)
-  , ("SHA256" , WrapHashType SHA256)
   , ("SHA512" , WrapHashType SHA512)
   ]
 
@@ -317,5 +314,4 @@ instance Show SomeDHType where
 instance Show SomeHashType where
   show (WrapHashType BLAKE2b) = "BLAKE2b"
   show (WrapHashType BLAKE2s) = "BLAKE2s"
-  show (WrapHashType SHA256)  = "SHA256"
   show (WrapHashType SHA512)  = "SHA512"
