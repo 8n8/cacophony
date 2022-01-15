@@ -47,7 +47,6 @@ library:
   exposed-modules:
     - Crypto.Noise
     - Crypto.Noise.Cipher
-    - Crypto.Noise.Cipher.AESGCM
     - Crypto.Noise.Cipher.ChaChaPoly1305
     - Crypto.Noise.DH
     - Crypto.Noise.DH.Curve25519

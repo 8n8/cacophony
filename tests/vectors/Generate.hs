@@ -145,8 +145,7 @@ allHandshakes :: [HandshakeName]
 allHandshakes = do
   pattern <- [minBound .. maxBound]
 
-  cipher  <- [ WrapCipherType AESGCM
-             , WrapCipherType ChaChaPoly1305
+  cipher  <- [ WrapCipherType ChaChaPoly1305
              ]
 
   dh      <- [ WrapDHType Curve25519

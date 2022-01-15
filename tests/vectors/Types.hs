@@ -13,7 +13,6 @@ import Data.Tuple            (swap)
 
 import Crypto.Noise
 import Crypto.Noise.Cipher.ChaChaPoly1305
-import Crypto.Noise.Cipher.AESGCM
 import Crypto.Noise.DH.Curve25519
 import Crypto.Noise.DH.Curve448
 import Crypto.Noise.HandshakePatterns
@@ -90,7 +89,6 @@ data HandshakeName = HandshakeName
 
 data CipherType :: * -> * where
   ChaChaPoly1305 :: CipherType ChaChaPoly1305
-  AESGCM         :: CipherType AESGCM
 
 data SomeCipherType where
   WrapCipherType :: forall c. Cipher c => CipherType c -> SomeCipherType
@@ -179,8 +177,7 @@ dhMap =
 
 cipherMap :: [(ByteString, SomeCipherType)]
 cipherMap =
-  [ ("AESGCM"    , WrapCipherType AESGCM)
-  , ("ChaChaPoly", WrapCipherType ChaChaPoly1305)
+  [ ("ChaChaPoly", WrapCipherType ChaChaPoly1305)
   ]
 
 hashMap :: [(ByteString, SomeHashType)]
@@ -299,7 +296,6 @@ instance Show PatternName where
 
 instance Show SomeCipherType where
   show (WrapCipherType ChaChaPoly1305) = "ChaChaPoly"
-  show (WrapCipherType AESGCM)         = "AESGCM"
 
 instance Show SomeDHType where
   show (WrapDHType Curve25519) = "25519"
