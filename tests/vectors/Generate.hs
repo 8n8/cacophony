@@ -154,7 +154,6 @@ allHandshakes = do
              ]
 
   hash    <- [ WrapHashType BLAKE2s
-             , WrapHashType SHA512
              ]
 
   return $ HandshakeName pattern cipher dh hash
