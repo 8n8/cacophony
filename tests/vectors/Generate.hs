@@ -153,8 +153,7 @@ allHandshakes = do
              , WrapDHType Curve448
              ]
 
-  hash    <- [ WrapHashType BLAKE2b
-             , WrapHashType BLAKE2s
+  hash    <- [ WrapHashType BLAKE2s
              , WrapHashType SHA512
              ]
 
